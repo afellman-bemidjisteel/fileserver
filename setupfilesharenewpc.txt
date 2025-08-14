@@ -1,0 +1,26 @@
+WARNING: A prompt in the window will open at some point asking for a passphrase, make it something simple and easy to remember there will be 3 prompts that will open regarding this.
+
+step 1: copy setuppart1.ps1, setuppart2.ps1 & fileshare.ps1 files from thumb drive anywhere onto target computer. Remember where these files are located. If these files are lost, there are backups on the iDRAC
+
+setup 2: create folder in C:\ drive called Scripts and throw the fileshare.ps1 file in there
+
+step 3: on new pc, open powershell with epm through context menu (right click then press run with elevated access)
+
+step 4: set execution policy in same shell using the following commands:
+
+set execution policy remote signed
+set-executionpolicy -executionpolicy RemoteSigned -scope LocalMachine
+
+step 5: run setuppart1.ps1
+
+step 6: close powershell
+
+step 7: make new powershell with regular user, not requesting elevated access
+
+step 8: run second part of powershell script for setup:
+
+step 9: run fileshare.ps1 in the same shell, which should add shared drive if ran. Test this in file explorer. It will not immediately show up in side pane. instead go to 'This PC'.
+
+step 10: make basic task in task scheduler for running fileshare.ps1 from the C:\Scripts folder on login of user
+
+step 11: MAKE SURE TO DELETE setuppart1.ps1 and setuppart2.ps1 on the target computer.
